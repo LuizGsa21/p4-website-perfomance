@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Udacity Project 4">
+    <meta name="author" content="Luiz Arantes Sa">
+    <title>Luiz Arantes Sa: Portfolio</title>
+
+    <!-- Google Analytics (Asynchronous to improve page load speed) -->
+    <script async src='//www.google-analytics.com/analytics.js'></script>
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      // TODO: replace with your Google Analytics profile ID.
+      ga('create', 'UA-XXXX-Y', 'auto');
+      ga('send', 'pageview');
+
+      // Navigation Timing
+      window.addEventListener("load", function(event) {
+        var t = window.performance.timing,
+            dcl = t.domContentLoadedEventStart - t.domLoading,
+            complete = t.domComplete - t.domLoading;
+        var stats = document.getElementById("crp-stats");
+        stats.textContent = 'DCL: ' + dcl + 'ms, onload: ' + complete + 'ms';
+      });
+
+      // Fetch 'Open Sans' font with javaScript to prevent css render blocking
+      // https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = '//fonts.googleapis.com/css?family=Open+Sans:400,700';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+
+    </script>
+    <!-- Add media print on print css to prevent render blocking-->
+    <link href="css/print.css" rel="stylesheet" media="print">
+    <!-- Use internal style css to preventrender blocking -->
+    <style>
+      html {
+        font-size: 100%;
+        overflow-y: scroll;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: none;
+      }
+      body { margin: 0; font-size: 14px; line-height: 1.61; font-weight: 400; }
+      body, button, input, select, textarea { font-family: 'Open Sans', sans-serif; color: #333; }
+
+      a { color: #12C; }
+      a:visited { color: #61C; }
+      a:focus { outline: thin dotted; }
+      a:hover, a:active { color: #c00; outline: 0; }
+
+      b, strong { font-weight: bold; }
+      pre, code { font-family: monospace, monospace; font-size: 1em; }
+      ul, ol { margin: 1em 0; padding: 0 0 0 20px; }
+      img { border: 0; max-width: 100%; }
+
+      body { background: #fff; }
+      header, footer, .container { max-width: 45em; margin: 0 auto; }
+
+      header { padding: 0 0.5em; color: #C90B0B; }
+      header img { border-radius: 40px; float: left; }
+      header p { font-size:1.5em; font-weight: bold; padding-left: 4em;}
+      header p span { font-size: 0.8em; font-weight: normal;}
+
+      .hero { padding: 2em; background-color: #f8f8f8; font-size:1.2em;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+      }
+
+      .content { padding: 1em 1em; }
+      .content li { list-style-type: none; font-size: 1.1em; display: inline-block;}
+      li img { float:left; padding-right: 1em;}
+      li p { display: block; font-size: 0.9em; font-style: italic; }
+
+      footer {
+        padding: 0 0.5em;
+        border-top: 1px solid #ccc;
+      }
+      footer span { float: right; font-style: italic; }
+
+      /* Smartphones (portrait) */
+      @media only screen and (max-width: 480px) {
+        body { font-size: 12px;}
+        header p { padding-left: 4.5em;}
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="/"><img width="70" height="70" src="img/profilepic.png"></a>
+      <p>Luiz Arantes Sa<br><span>Web Developer</span></p>
+    </header>
+
+    <div class="container">
+      <div class="hero">
+        <p><strong>Creating my first mockup website was awesome!</strong> In this project I learned how HTML is used to
+          define the content of a web page and how to treat every web page as a number of boxes on the screen
+          to easily replicate a design.</p>
+      </div>
+
+      <div class="content">
+        <img src="img/p1-original.png">
+        <p>View project on <a href="http://github.com/LuizGsa21/p1-mockup">GitHub</a></p>
+      </div>
+
+      <a href="index.html">Back to Home Page</a>
+      <footer>
+        <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
+      </footer>
+    </div>
+  </body>
+</html>
