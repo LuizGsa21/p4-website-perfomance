@@ -270,13 +270,19 @@ function generator(adj, noun) {
   var nouns = getNoun(noun);
   var randomAdjective = parseInt(Math.random() * adjectives.length);
   var randomNoun = parseInt(Math.random() * nouns.length);
-  return "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
+  var nameBuilder = [];
+  nameBuilder.push('The ');
+  nameBuilder.push(adjectives[randomAdjective].capitalize());
+  nameBuilder.push(' ');
+  nameBuilder.push(nouns[randomNoun].capitalize());
+  return nameBuilder.join('');
 }
 
 // Chooses random adjective and random noun
 function randomName() {
   var randomNumberAdj = parseInt(Math.random() * adjectives.length);
   var randomNumberNoun = parseInt(Math.random() * nouns.length);
+
   return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
 }
 
@@ -301,34 +307,33 @@ var selectRandomCrust = function() {
   return pizzaIngredients.crusts[Math.floor((Math.random() * pizzaIngredients.crusts.length))];
 };
 
-var ingredientItemizer = function(string) {
-  return "<li>" + string + "</li>";
-};
-
 // Returns a string with random pizza ingredients nested inside <li> tags
 var makeRandomPizza = function() {
-  var pizza = "";
+
+  var pizzaBuilder = [];
   var i;
   var numberOfMeats = Math.floor((Math.random() * 4));
   var numberOfNonMeats = Math.floor((Math.random() * 3));
   var numberOfCheeses = Math.floor((Math.random() * 2));
 
   for (i = 0; i < numberOfMeats; i++) {
-    pizza = pizza + ingredientItemizer(selectRandomMeat());
+    pizzaBuilder.push('<li>', selectRandomMeat(), '</li>');
   }
 
   for (i = 0; i < numberOfNonMeats; i++) {
-    pizza = pizza + ingredientItemizer(selectRandomNonMeat());
+    pizzaBuilder.push('<li>', selectRandomNonMeat(), '</li>');
   }
 
   for (i = 0; i < numberOfCheeses; i++) {
-    pizza = pizza + ingredientItemizer(selectRandomCheese());
+    pizzaBuilder.push('<li>', selectRandomCheese(), '</li>');
   }
 
-  pizza = pizza + ingredientItemizer(selectRandomSauce());
-  pizza = pizza + ingredientItemizer(selectRandomCrust());
+  pizzaBuilder.push('<li>', selectRandomSauce(), '</li>');
 
-  return pizza;
+
+  pizzaBuilder.push('<li>', selectRandomCrust(), '</li>');
+
+  return pizzaBuilder.join('');
 };
 
 // returns a DOM element for each pizza
@@ -463,8 +468,10 @@ function updatePositions() {
     // Get scrollTop value outside of loop to prevent the page from rendering during loop iteration
     var scrollTop = document.body.scrollTop / 1250;
     for (var i = 0; i < slidingPizzas.length; i++) {
-      var phase = Math.sin(scrollTop + (i % 5));
-      slidingPizzas[i].style.left = slidingPizzas[i].basicLeft + 100 * phase + 'px';
+      var styleLeft = [];
+      styleLeft.push(slidingPizzas[i].basicLeft + 100 * Math.sin(scrollTop + (i % 5)), 'px');
+      slidingPizzas[i].style.left = styleLeft.join('');
+
     }
   }
   movePizzas = !movePizzas; // only draw sliding pizzas every other call
@@ -486,6 +493,7 @@ var slidingPizzas = null;
 function createSlidingPizzas() {
   var cols = 8;
   var s = 256;
+
   // To trigger a single reflow, create a fragment to hold the sliding pizzas
   var fragment = document.createDocumentFragment();
 
