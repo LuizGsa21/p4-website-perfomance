@@ -1,37 +1,161 @@
 <!DOCTYPE HTML>
 <html>
-<head>  
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/bootstrap-grid.css">
-</head>
+<head>
+  <style>
+    * {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -box-sizing: border-box;
+    }
 
+    body {
+      background: black;
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
+    }
+
+    input {
+      background: grey;
+      font-size: 18px;
+    }
+
+    form {
+      display: inline-block;
+    }
+
+    .img-responsive {
+      display: block;
+      width: 100% \9;
+      max-width: 100%;
+      height: auto;
+    }
+
+    img {
+      vertical-align: middle;
+    }
+
+    .centered {
+      text-align: center;
+    }
+
+    #pizzaSize {
+      font-weight: 800;
+    }
+
+    .mover {
+      position: fixed;
+      z-index: -1;
+    }
+
+    .randomPizzaContainer {
+      display: flex;
+      float: left;
+      width: 33.33%;
+      height: 325px;
+    }
+
+    .randomPizzaContainer:after {
+      clear: both;
+      content: "";
+      display: table;
+    }
+
+    .container {
+      background-color: rgba(240, 60, 60, 0.8);
+      margin-right: auto;
+      margin-left: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        width: 750px;
+      }
+    }
+    @media (min-width: 992px) {
+      .container {
+        width: 970px;
+      }
+    }
+    @media (min-width: 1200px) {
+      .container {
+        width: 1170px;
+      }
+    }
+    @media (min-width: 992px) {
+      .col-md-4,
+      .col-md-6,
+      .col-md-8,
+      .col-md-12 {
+        float: left;
+        padding-left: 15px;
+        padding-right: 15px;
+        position: relative;
+        min-height: 1px;
+      }
+      .col-md-12 {
+        width: 100%;
+      }
+      .col-md-8 {
+        width: 66.66666667%;
+      }
+      .col-md-6 {
+        width: 50%;
+      }
+      .col-md-4 {
+        width: 33.33333333%;
+      }
+      .col-md-push-3 {
+        left: 25%;
+      }
+      .col-md-push-2 {
+        left: 16.66666667%;
+      }
+    }
+    .clearfix:before,
+    .clearfix:after,
+    .container:before,
+    .container:after,
+    .row:before,
+    .row:after {
+      content: " ";
+      display: table;
+    }
+    .clearfix:after,
+    .container:after,
+    .row:after {
+      clear: both;
+    }
+
+    #movingPizzas1 {
+      position: fixed;
+      z-index: -1;
+    }
+  </style>
+</head>
 <body>
+  <div id="movingPizzas1">
+  </div>
   <div class="container">
     <div id="header" class="row">
-      <div class="col-md-6">
-        <div class="row">
-          <div class="col-md-12">
-            <h1>Cam's Pizzeria</h1>
-            <div class="row">
-              <div id="menu" class="col-md-12">
-                <form action="#randomPizzas">
-                  <input type="submit" value="Menu">
-                </form>
-                <form action="#ingredients">
-                  <input type="submit" value="Our Ingredients">
-                </form>
-                <form action="#locations">
-                  <input type="submit" value="Locations">
-                </form>
-                <form action="#" onsubmit="alert('Thanks for clicking! This button doesn\'t do anything because this is a fake pizzeria :\)')">
-                  <input type="submit" value="Contact Us">
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="col-md-12">
+        <h1>Cam's Pizzeria</h1>
       </div>
-      <div id="movingPizzas1" class="col-md-6">
+    </div>
+    <div class="row">
+      <div id="menu" class="col-md-12">
+        <form action="#randomPizzas">
+          <input type="submit" value="Menu">
+        </form>
+        <form action="#ingredients">
+          <input type="submit" value="Our Ingredients">
+        </form>
+        <form action="#locations">
+          <input type="submit" value="Locations">
+        </form>
+        <form action="#" onsubmit="alert('Thanks for clicking! This button doesn\'t do anything because this is a fake pizzeria :\)')">
+          <input type="submit" value="Contact Us">
+        </form>
       </div>
     </div>
     <div id="callToAction" class="row">
@@ -101,38 +225,7 @@
             <input id="sizeSlider" type="range" min="1" max="3" value="2" step="1" onchange="resizePizzas(this.value)">
           </div>
         </div>
-        <div id="randomPizzas" class="row">
-          <div id="pizza0" class="randomPizzaContainer" style="width:33.33%;">
-            <div class="col-md-6">
-              <img src="images/pizza.png" class="img-responsive">
-            </div>
-            <div class="col-md-6">
-              <h4>The Udacity Special</h4>
-              <ul>
-                <li>Turkey</li>
-                <li>Tofu</li>
-                <li>Cauliflower</li>
-                <li>Sun Dried Tomatoes</li>
-                <li>Velveeta Cheese</li>
-                <li>Red Sauce</li>
-                <li>Whole Wheat Crust</li>
-              </ul>
-            </div>
-          </div>
-          <div id="pizza1" class="randomPizzaContainer" style="width:33.33%;">
-            <div class="col-md-6">
-              <img src="images/pizza.png" class="img-responsive">
-            </div>
-            <div class="col-md-6">
-              <h4>The Cameron Special</h4>
-              <ul>
-                <li>Chicken</li>
-                <li>Hot Sauce</li>
-                <li>White Crust</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <div id="randomPizzas" class="row"></div>
       </div>
     </div>
     <div id="footer" class="col-md-12">Thanks for visiting! &copy; 2014 Udacity</div>
