@@ -9,20 +9,8 @@
 
     <!-- Google Analytics (Asynchronous to improve page load speed) -->
     <script async src='//www.google-analytics.com/analytics.js'></script>
+    <script async src="js/analytics.js"></script>
     <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-58074685-1', 'auto');
-      ga('send', 'pageview');
-
-      // Navigation Timing
-      window.addEventListener("load", function(event) {
-        var t = window.performance.timing,
-            dcl = t.domContentLoadedEventStart - t.domLoading,
-            complete = t.domComplete - t.domLoading;
-        var stats = document.getElementById("crp-stats");
-        stats.textContent = 'DCL: ' + dcl + 'ms, onload: ' + complete + 'ms';
-      });
-
       // Fetch 'Open Sans' font with javaScript to prevent css render blocking
       // https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
       var cb = function() {
@@ -34,7 +22,6 @@
           webkitRequestAnimationFrame || msRequestAnimationFrame;
       if (raf) raf(cb);
       else window.addEventListener('load', cb);
-
     </script>
 
     <!-- Add media print on print css to prevent render blocking-->
