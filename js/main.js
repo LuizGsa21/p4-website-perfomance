@@ -144,7 +144,7 @@ pizzaIngredients.crusts = [
 
 // Name generator pulled from http://saturdaykid.com/usernames/generator.html
 // Capitalizes first letter of each word
-String.prototype.capitalize = function() {
+String.prototype.capitalize = function () {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
@@ -204,7 +204,7 @@ function getAdj(x) {
 
 // Pulls noun out of array using random number sent from generator
 function getNoun(y) {
-  switch(y) {
+  switch (y) {
     case "animals":
       return ["flamingo", "hedgehog", "owl", "elephant", "pussycat", "alligator", "dachsund", "poodle", "beagle", "crocodile", "kangaroo",
         "wallaby", "woodpecker", "eagle", "falcon", "canary", "parrot", "parakeet", "hamster", "gerbil", "squirrel", "rat", "dove", "toucan",
@@ -287,28 +287,28 @@ function randomName() {
 }
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
-var selectRandomMeat = function() {
+var selectRandomMeat = function () {
   return pizzaIngredients.meats[Math.floor((Math.random() * pizzaIngredients.meats.length))];
 };
 
-var selectRandomNonMeat = function() {
+var selectRandomNonMeat = function () {
   return pizzaIngredients.nonMeats[Math.floor((Math.random() * pizzaIngredients.nonMeats.length))];
 };
 
-var selectRandomCheese = function() {
+var selectRandomCheese = function () {
   return pizzaIngredients.cheeses[Math.floor((Math.random() * pizzaIngredients.cheeses.length))];
 };
 
-var selectRandomSauce = function() {
+var selectRandomSauce = function () {
   return pizzaIngredients.sauces[Math.floor((Math.random() * pizzaIngredients.sauces.length))];
 };
 
-var selectRandomCrust = function() {
+var selectRandomCrust = function () {
   return pizzaIngredients.crusts[Math.floor((Math.random() * pizzaIngredients.crusts.length))];
 };
 
 // Returns a string with random pizza ingredients nested inside <li> tags
-var makeRandomPizza = function() {
+var makeRandomPizza = function () {
 
   var pizzaBuilder = [];
   var i;
@@ -337,7 +337,7 @@ var makeRandomPizza = function() {
 };
 
 // returns a DOM element for each pizza
-var pizzaElementGenerator = function(i) {
+var pizzaElementGenerator = function (i) {
   var pizzaContainer,           // contains pizza title, image and list of ingredients
     pizzaImageContainer,        // contains the pizza image
     pizzaImage,                 // the pizza image itself
@@ -345,7 +345,7 @@ var pizzaElementGenerator = function(i) {
     pizzaName,                  // the pizza name itself
     ul;                         // the list of ingredients
 
-  pizzaContainer  = document.createElement("div");
+  pizzaContainer = document.createElement("div");
   pizzaImageContainer = document.createElement("div");
   pizzaImage = document.createElement("img");
   pizzaDescriptionContainer = document.createElement("div");
@@ -378,12 +378,12 @@ var pizzaElementGenerator = function(i) {
 };
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
-var resizePizzas = function(size) {
+var resizePizzas = function (size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changes the value for the size of the pizza above the slider
   function changeSliderLabel(size) {
-    switch(size) {
+    switch (size) {
       case "1":
         document.querySelector("#pizzaSize").innerHTML = "Small";
         return;
@@ -399,14 +399,14 @@ var resizePizzas = function(size) {
   }
 
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function determineDx (oldwidth, size) {
+  function determineDx(oldwidth, size) {
     var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
     var oldsize = oldwidth / windowwidth;
 
     // TODO: change to 3 sizes? no more xl?
     // Changes the slider value to a percent width
-    function sizeSwitcher (size) {
-      switch(size) {
+    function sizeSwitcher(size) {
+      switch (size) {
         case "1":
           return 0.25;
         case "2":
@@ -545,7 +545,7 @@ var timeToGenerate = window.performance.getEntriesByName("measure_pizza_generati
 console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "ms");
 
 // Generates the sliding and static pizzas
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   createSlidingPizzas();
   createStaticPizzas();
   window.addEventListener('scroll', updatePositions);

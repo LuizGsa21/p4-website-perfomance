@@ -1,10 +1,10 @@
 /* Main body */
 
 body {
-    font: 400 14px/1.61 "Open Sans", sans-serif;
-    margin: 0;
     background: #fff;
     color: #333;
+    font: 400 14px/1.61 "Open Sans", sans-serif;
+    margin: 0;
 }
 
 .container {
@@ -88,9 +88,9 @@ header {
 
 .img-responsive {
     display: block;
-    width: 100% \9;
+    height: auto \9;
     max-width: 100%;
-    height: auto;
+    width: 100%;
 }
 
 /* Footer */
