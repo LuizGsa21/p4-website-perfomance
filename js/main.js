@@ -435,9 +435,9 @@ var resizePizzas = function(size) {
     for (var i = 0; i < randomPizzaContainer.length; i++) {
       randomPizzaContainer[i].style.width = newwidth;
     }
+    changeSliderLabel(size);
   }
 
-  changeSliderLabel(size);
   changePizzaSizes(size);
 
   // User Timing API is awesome
