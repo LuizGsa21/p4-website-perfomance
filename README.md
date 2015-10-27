@@ -1,16 +1,10 @@
 # Project 4 Website Performance Optimization 
 
-This portfolio shows all the projects I have done in Udacity's Front-End Web Developer course.
+######Project Overview
 
-### PageSpeed Insights Scores
-Below are quick links to my PageSpeed Insights scores :)
+This project is part of Udacity's [Front-End Web Developer Nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001). The task is to optimize a provided website with a number of optimization and performance-related issues so that it achieves a target PageSpeed score of 90 and runs at 60 frames per second.
 
-* [Home Page](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fluizgsa21.github.io%2Fp4-website-perfomance%2F)
-* [Project-1](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fluizgsa21.github.io%2Fp4-website-perfomance%2Fproject-1.html)
-* [Project-2](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fluizgsa21.github.io%2Fp4-website-perfomance%2Fproject-2.html)
-* [Project-3](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fluizgsa21.github.io%2Fp4-website-perfomance%2Fproject-3.html)
-* [Pizza](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fluizgsa21.github.io%2Fp4-website-perfomance%2Fpizza.html)
+######Summary
+In this project I learned about the critical rendering path, the process by which the browser receives HTML, CSS and JavaScript and the required processing to turn them into rendered pixels. I used Chrome Developer Tools to review the current state of the application and iteratively make changes and test those changes to determine if they are a performance gain or loss.
 
-To see website live preview click [here](http://luizgsa21.github.io/p4-website-perfomance/).
-
-For the minified version see [gh-pages](https://github.com/LuizGsa21/p4-website-perfomance/tree/gh-pages).
+- [View PageSpeed](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fluizgsa21.github.io%2Fp4-website-perfomance%2Fpizza.html)
